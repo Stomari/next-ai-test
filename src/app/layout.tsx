@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import "./globals.css";
-
-const roboto = Roboto_Mono({ subsets: ["latin"] });
+import { Header } from "@/components/organism/Header";
+import { CustomThemeProvider } from "@/theme/CustomThemeProvider";
 
 export const metadata: Metadata = {
-  title: "AI Next App",
+  title: "Next AI App",
 };
 
 export default function RootLayout({
@@ -15,7 +15,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </head>
+      <body>
+        <AppRouterCacheProvider>
+          <CustomThemeProvider>
+            <Header />
+            {children}
+          </CustomThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
