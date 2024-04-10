@@ -3,14 +3,14 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AiIcon from "@mui/icons-material/GroupWork";
 
 type TMessage = {
-  key: string;
   isUser: boolean;
   content: string;
 };
+
 export const Message = (props: TMessage) => {
-  const { key, isUser, content } = props;
+  const { isUser, content } = props;
   return (
-    <Box key={key} sx={{ marginBottom: "32px" }}>
+    <Box sx={{ marginBottom: "32px" }}>
       <Box
         sx={{
           flexDirection: "row",

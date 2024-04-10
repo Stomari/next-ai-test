@@ -1,8 +1,7 @@
 # Next AI App
 
 <img src="./public/sample.gif" />
-<br/>
-<br/>
+
 Next AI App is a web application powered by Next.js and the OpenAI API, designed to facilitate engaging and dynamic text-based conversations with an AI chatbot. This project leverages server-side rendering provided by Next.js to ensure optimal performance and user experience. The integration with the OpenAI API enables the AI chatbot to generate human-like responses and engage in meaningful conversations with users.
 
 ## Technologies Used
