@@ -13,6 +13,8 @@ import {
   useTheme,
 } from "@mui/material";
 import { useContext } from "react";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 export const Header = () => {
   const theme = useTheme();
@@ -39,7 +41,13 @@ export const Header = () => {
                   onChange={colorMode.toggleColorMode}
                 />
               }
-              label="Dark Mode"
+              label={
+                theme.palette.mode === "dark" ? (
+                  <DarkModeIcon />
+                ) : (
+                  <LightModeIcon />
+                )
+              }
             />
           </FormGroup>
         </Toolbar>
