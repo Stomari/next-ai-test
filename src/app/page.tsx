@@ -1,6 +1,13 @@
-import { Box, TextField } from "@mui/material";
+"use client";
+
+import { Box } from "@mui/material";
+import { useChat } from "ai/react";
+import { Message } from "@/components/molecules/Message";
+import { MessageInput } from "@/components/molecules/MessageInput";
 
 export default function Home() {
+  const { messages, input, handleInputChange, handleSubmit } = useChat();
+
   return (
     <Box
       sx={{
@@ -9,17 +16,29 @@ export default function Home() {
         height: "calc(100% - 60px)",
       }}
     >
-      <Box sx={{ flexGrow: 1 }}></Box>
-      <Box sx={{ padding: "64px" }}>
-        <TextField
-          id="filled-multiline-static"
-          label="Message to Next AI"
-          multiline
-          maxRows={5}
-          variant="standard"
-          fullWidth
-        />
+      <Box
+        sx={{
+          flexGrow: 1,
+          padding: "40px 24px",
+          display: "flex",
+          flexDirection: "column",
+          overflowY: "auto",
+        }}
+      >
+        {messages.map((message) => (
+          <Message
+            key={message.id}
+            isUser={message.role === "user"}
+            content={message.content}
+          />
+        ))}
       </Box>
+
+      <MessageInput
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+        value={input}
+      />
     </Box>
   );
 }
